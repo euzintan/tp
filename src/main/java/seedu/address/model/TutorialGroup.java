@@ -8,7 +8,7 @@ import seedu.address.model.person.Module;
 import seedu.address.model.person.Student;
 import seedu.address.model.person.StudentId;
 
-public class TutorialGroup {
+public class TutorialGroup implements Showable {
     private final String id;
     private Module module;
     private HashMap<StudentId, Student> studentList;

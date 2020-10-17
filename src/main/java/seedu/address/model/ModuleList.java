@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Module;
 import seedu.address.model.person.UniqueModuleList;
+import seedu.address.model.person.UniqueTutorialGroupList;
 
 public class ModuleList implements ReadOnlyModuleList {
 
@@ -83,4 +84,5 @@ public class ModuleList implements ReadOnlyModuleList {
     public ObservableList<Module> getModuleList() {
         return modules.asUnmodifiableObservableList();
     }
+
 }

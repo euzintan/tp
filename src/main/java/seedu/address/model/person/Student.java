@@ -5,13 +5,14 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.Showable;
 import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Student in the app.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Student extends Person {
+public class Student extends Person implements Showable {
 
     private final StudentId studentId;
 
