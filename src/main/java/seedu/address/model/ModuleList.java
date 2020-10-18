@@ -12,6 +12,8 @@ import seedu.address.model.person.UniqueTutorialGroupList;
 public class ModuleList implements ReadOnlyModuleList {
 
     private final UniqueModuleList modules = new UniqueModuleList();
+    private UniqueTutorialGroupList tutorialGroups = new UniqueTutorialGroupList();
+
 
     public ModuleList() {}
 
@@ -79,10 +81,23 @@ public class ModuleList implements ReadOnlyModuleList {
         modules.remove(key);
     }
 
+    public void addTutorialGroup(TutorialGroup tutorialGroup) {
+        tutorialGroups.add(tutorialGroup);
+    }
+
+    public boolean hasTutorialGroup(TutorialGroup tutorialGroup) {
+        requireNonNull(tutorialGroup);
+        return tutorialGroups.contains(tutorialGroup);
+    }
+
 
     @Override
     public ObservableList<Module> getModuleList() {
         return modules.asUnmodifiableObservableList();
     }
+
+    public ObservableList<TutorialGroup> getTutorialGroupList() {
+        tutorialGroups.add(new TutorialGroup("trial"));
+        return tutorialGroups.asUnmodifiableObservableList(); }
 
 }

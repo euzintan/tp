@@ -9,13 +9,17 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.ListTutorialGroupCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyModuleList;
+import seedu.address.model.Showable;
+import seedu.address.model.TutorialGroup;
 import seedu.address.model.person.Module;
 import seedu.address.storage.Storage;
+import seedu.address.ui.Ui;
 
 /**
  * The main LogicManager of the app.
@@ -62,6 +66,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Module> getFilteredModuleList() {
         return model.getFilteredModuleList();
+    }
+
+    @Override
+    public ObservableList<TutorialGroup> getFilteredTutorialGroupList() {
+        return model.getFilteredTutorialGroupList();
     }
 
     @Override

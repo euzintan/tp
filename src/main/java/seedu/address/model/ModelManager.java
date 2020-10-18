@@ -22,6 +22,7 @@ public class ModelManager implements Model {
     private final ModuleList moduleList;
     private final UserPrefs userPrefs;
     private final FilteredList<Module> filteredModules;
+    private final FilteredList<TutorialGroup> filteredTutorialGroups;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -35,6 +36,7 @@ public class ModelManager implements Model {
         this.moduleList = new ModuleList(moduleList);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredModules = new FilteredList<>(this.moduleList.getModuleList());
+        filteredTutorialGroups = new FilteredList<>(this.moduleList.getTutorialGroupList());
     }
 
     public ModelManager() {
@@ -124,21 +126,26 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<TutorialGroup> getFilteredTutorialGroupList() {
+        return filteredTutorialGroups;
+    }
+
+    @Override
     public void updateFilteredModuleList(Predicate<Module> predicate) {
         requireNonNull(predicate);
         filteredModules.setPredicate(predicate);
     }
 
-    //    @Override
-    //    public void addTutorialGroup(TutorialGroup tutorialGroup) {
-    //        moduleList.addTutorialGroup(tutorialGroup);
-    //    }
-    //
-    //    @Override
-    //    public boolean hasTutorialGroup(TutorialGroup tutorialGroup) {
-    //        requireAllNonNull(tutorialGroup);
-    //        return moduleList.hasTutorialGroup(tutorialGroup);
-    //    }
+    @Override
+    public void addTutorialGroup(TutorialGroup tutorialGroup) {
+        moduleList.addTutorialGroup(tutorialGroup);
+    }
+
+    @Override
+    public boolean hasTutorialGroup(TutorialGroup tutorialGroup) {
+        requireAllNonNull(tutorialGroup);
+        return moduleList.hasTutorialGroup(tutorialGroup);
+    }
 
     @Override
     public boolean equals(Object obj) {

@@ -79,11 +79,18 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Module> getFilteredModuleList();
 
+    /** Returns an unmodifiable view of the filtered tutorial group list */
+    ObservableList<TutorialGroup> getFilteredTutorialGroupList();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredModuleList(Predicate<Module> predicate);
+
+    void addTutorialGroup(TutorialGroup tutorialGroup);
+
+    boolean hasTutorialGroup(TutorialGroup tutorialGroup);
 
     //    /**
     //     * Adds the given tutorial group.

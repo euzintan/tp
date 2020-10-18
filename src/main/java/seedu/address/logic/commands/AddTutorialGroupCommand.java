@@ -19,6 +19,7 @@ public class AddTutorialGroupCommand extends Command {
 
     /**
      * Main constructor, called by the AddTutorialGroupCommand Parser
+     *
      * @param tutorialGroup
      */
     public AddTutorialGroupCommand(TutorialGroup tutorialGroup) {
@@ -29,22 +30,20 @@ public class AddTutorialGroupCommand extends Command {
     // todo Implement execution of TG Addition
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        //        requireNonNull(model);
-        //
-        //        if (model.hasTutorialGroup(toAdd)) {
-        //            throw new CommandException(MESSAGE_DUPLICATE_TUTGRP);
-        //        }
-        //        System.out.println("after");
-        //
-        //        model.addTutorialGroup(toAdd);
-        //        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
-        return new CommandResult("NOT IMPLEMENTED YET");
+        requireNonNull(model);
+
+        if (model.hasTutorialGroup(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_TUTGRP);
+        }
+
+        model.addTutorialGroup(toAdd);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddTutorialGroupCommand) other).toAdd));
+            || (other instanceof AddCommand // instanceof handles nulls
+            && toAdd.equals(((AddTutorialGroupCommand) other).toAdd));
     }
 }

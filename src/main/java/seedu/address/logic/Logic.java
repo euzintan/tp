@@ -8,6 +8,8 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyModuleList;
+import seedu.address.model.Showable;
+import seedu.address.model.TutorialGroup;
 import seedu.address.model.person.Module;
 
 /**
@@ -30,8 +32,12 @@ public interface Logic {
      */
     ReadOnlyModuleList getModuleList();
 
-    /** Returns an unmodifiable view of the filtered list of persons */
+    /** Returns an unmodifiable view of the filtered list of modules */
     ObservableList<Module> getFilteredModuleList();
+
+    /** Returns an unmodifiable view of the filtered list of tutorial groups */
+    public ObservableList<TutorialGroup> getFilteredTutorialGroupList();
+
 
     /**
      * Returns the user prefs' address book file path.
